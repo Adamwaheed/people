@@ -13,7 +13,10 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = \App\Models\Employee::paginate();
+        $employees = \App\Models\Employee::
+            orderBy('name','asc')
+
+            ->paginate();
 
         return view('employees.index')->with(compact('employees'));
     }
