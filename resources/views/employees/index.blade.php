@@ -3,7 +3,7 @@
     <nav class="navbar navbar-white bg-white shadow-sm">
         <div class="container d-flex justify-content-between">
         <div class="navbar-brand" >Employee</div>
-        <a class="btn btn-primary">Create</a>
+        <a href="{{route('employees.create')}}" class="btn btn-primary">Create</a>
         </div>
     </nav>
 @endsection
@@ -16,6 +16,7 @@
         <th scope="col">name</th>
         <th scope="col">contact</th>
         <th scope="col">address</th>
+        <th scope="col">Email</th>
       </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
         <td>{{$employee->name}}</td>
         <td>{{$employee->contact}}</td>
         <td>{{$employee->address}}</td>
+        <td>{{$employee->email}}</td>
       </tr>
     @endforeach
     </tbody>
