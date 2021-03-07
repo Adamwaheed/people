@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Employee;
+use App\Models\EmployeeAllowance;
+use App\Models\EmployeeProfile;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,7 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\Employee::factory(1000)->create();
-         \App\Models\Allowance::factory(50)->create();
+        Employee::factory()->count(10)->has(EmployeeProfile::factory()->count(1))->create();
     }
 }

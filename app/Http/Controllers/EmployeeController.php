@@ -15,9 +15,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = \App\Models\Employee::
-        orderBy('id', 'desc')->paginate();
-
+        $employees = \App\Models\Employee::with(['employeeProfile', 'allowance', 'tags'])->orderBy('id', 'desc')->paginate();
         return view('employees.index')->with(compact('employees'));
     }
 
@@ -51,12 +49,12 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param Employee $employee
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Employee $employee)
     {
-        //
+        return view('employees.show')->with('employee',$employee);
     }
 
     /**

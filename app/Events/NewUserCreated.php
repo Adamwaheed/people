@@ -7,27 +7,22 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class EmployeeCreated
+class NewUserCreated
 {
-
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $employee;
-
-
+    public $user;
     /**
      * Create a new event instance.
      *
-     * @param $employee
+     * @return void
      */
-    public function __construct($employee)
+    public function __construct($user)
     {
-        $this->employee = $employee;
-
+        $this->user = $user;
     }
 
     /**
