@@ -52,9 +52,11 @@ class EmployeeController extends Controller
      * @param Employee $employee
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show($id)
     {
-        return view('employees.show')->with('employee',$employee);
+        $employee = Employee::with('images')->find($id);
+
+        return view('employees.show')->with('employee', $employee);
     }
 
     /**

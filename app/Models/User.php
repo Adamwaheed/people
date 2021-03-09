@@ -46,4 +46,9 @@ class User extends Authenticatable
     public function employee(){
         return $this->belongsTo(Employee::class);
     }
+
+    public function images(): \Illuminate\Database\Eloquent\Relations\MorphMany
+    {
+        return $this->morphMany(Imageable::class,'imageable');
+    }
 }

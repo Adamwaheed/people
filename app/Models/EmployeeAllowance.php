@@ -20,4 +20,9 @@ class EmployeeAllowance extends Model
     {
         return $this->belongsTo(Allowance::class);
     }
+
+    public function images(): \Illuminate\Database\Eloquent\Relations\MorphMany
+    {
+        return $this->morphMany(Imageable::class,'imageable');
+    }
 }

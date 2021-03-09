@@ -31,4 +31,9 @@ class Employee extends Model
     {
         return $this->morphMany(Tag::class,'taggable');
     }
+
+    public function images(): \Illuminate\Database\Eloquent\Relations\MorphMany
+    {
+        return $this->morphMany(Imageable::class,'imageable');
+    }
 }
